@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply size-full;
+    }
+
+    @media (prefers-color-scheme: light) {
+        html {
+            @apply bg-light text-dark bg-repeat;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        html {
+            @apply bg-dark text-light bg-repeat;
+        }
+    }
+
+    body {
+        @apply bg-light text-dark dark:bg-dark dark:text-light transition-all ease-in-out duration-500;
+        background-image: url("/abstract-wave.png");
+        background-size: contain;
+        background-repeat: repeat-y;
+    }
+
+    h1 {
+        @apply text-6xl;
+    }
+
+    h2 {
+        @apply text-4xl;
+    }
+
+    h3 {
+        @apply text-2xl;
+    }
+
+    h4 {
+        @apply text-xl;
+    }
+
+    a {
+        @apply transition-all ease-in-out duration-500;
+    }
+
+    a:hover {
+        @apply text-primary;
+    }
+
+    b {
+        @apply text-primary;
+    }
+}
+
+@layer components {
+    .bg-glass {
+        @apply bg-[rgba(0,0,0,0.05)] dark:bg-[rgba(255,255,255,0.05)] backdrop-blur-md;
+    }
+}
+
+.animate-in {
+    animation: animateIn 0.3s ease 0.15s both;
+}
+
+@keyframes animateIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
