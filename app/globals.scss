@@ -21,9 +21,8 @@
 
     body {
         @apply bg-light text-dark dark:bg-dark dark:text-light transition-all ease-in-out duration-500;
-        background-image: url("/abstract-wave.png");
-        background-size: contain;
-        background-repeat: repeat-y;
+        @apply bg-contain bg-repeat-y;
+        @apply bg-[linear-gradient(rgba(255,255,255,0.65),rgba(255,255,255,0.65)),url('/abstract-wave.png')] dark:bg-[linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('/abstract-wave.png')];
     }
 
     h1 {
@@ -50,14 +49,14 @@
         @apply text-primary;
     }
 
-    b {
-        @apply text-primary;
+    span {
+        @apply text-primary font-bold;
     }
 }
 
 @layer components {
     .bg-glass {
-        @apply bg-[rgba(0,0,0,0.05)] dark:bg-[rgba(255,255,255,0.05)] backdrop-blur-md;
+        @apply bg-[rgba(0,0,0,0.05)] dark:bg-[rgba(255,255,255,0.05)] backdrop-blur-sm;
     }
 }
 

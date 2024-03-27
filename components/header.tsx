@@ -1,14 +1,15 @@
 import Image from "next/image"
-import ThemeToggle from "@/components/ThemeToggle"
+import ThemeToggle from "@/components/themeToggle"
 
 export default function Header() {
     return (
-        <header className="p-2 flex justify-between items-center z-10 select-none">
+        <header className="p-2 flex justify-between items-center">
             <Image
                 alt="Moe Ayoub's Logo"
-                src="/favicon.ico"
+                src="/moeayoub_logo.png"
                 width={48}
                 height={48}
+                priority={true}
             />
             <ThemeToggle />
         </header>
