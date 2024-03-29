@@ -2,7 +2,7 @@ import Image from "next/image"
 import { GrMysql, GrNode } from "react-icons/gr"
 import { SiMicrosoftsqlserver } from "react-icons/si"
 
-export default function Skill({
+export default function ({
     category,
     name,
     logoUrl,

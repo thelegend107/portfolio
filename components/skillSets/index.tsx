@@ -5,7 +5,7 @@ import type SkillSetDb from "@/types/skillSet"
 import Skill from "./skill"
 import SkillCategory from "./skillCategory"
 
-export default async function SkillSets() {
+export default async function () {
     const supabase = createClient()
 
     const { data: skills, error }: PostgrestSingleResponse<SkillSetDb[]> =

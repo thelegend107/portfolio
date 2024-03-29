@@ -3,9 +3,9 @@ import { BiLinkExternal } from "react-icons/bi"
 import { SiGithub } from "react-icons/si"
 import LinkButton from "../linkButton"
 
-export default function Project({ project: p }: { project: ProjectDb }) {
+export default function ({ project: p }: { project: ProjectDb }) {
     return (
-        <div className="flex flex-col rounded-lg flex-[0_1_32%] bg-glass border border-neutral-400 dark:border-neutral-800">
+        <div className="flex flex-col flex-[0_1_32%] bg-glass">
             <img
                 className="h-auto lg:h-52 w-auto rounded-t-lg"
                 src={p.imageLink ? p.imageLink : ""}
@@ -14,7 +14,7 @@ export default function Project({ project: p }: { project: ProjectDb }) {
             <div className="flex flex-col gap-2 p-2 flex-grow font-light">
                 <div>
                     <p className="font-semibold text-xl">{p.name}</p>
-                    <p className="font-thin">
+                    <p className="font-extralight">
                         {new Date(p.createdDate).toLocaleString()}
                     </p>
                 </div>

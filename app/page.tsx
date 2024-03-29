@@ -1,16 +1,17 @@
+import Title from "@/components/title"
 import HeroSection from "@/components/heroSection"
 import SkillSets from "@/components/skillSets"
 import Projects from "@/components/projects"
-import Title from "@/components/title"
+import AboutMe from "@/components/aboutMe"
 
 export default async function Index() {
     return (
         <article className="flex flex-col max-w-7xl mx-auto gap-4 p-2">
-            <section className="min-h-screen">
+            <section id="intro" className="lg:min-h-screen">
                 <HeroSection></HeroSection>
                 <SkillSets></SkillSets>
             </section>
-            <section className="min-h-[82vh]">
+            <section id="projects" className="lg:min-h-screen">
                 <Title>
                     <p>
                         Projects I've <span>designed</span> &{" "}

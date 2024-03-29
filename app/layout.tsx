@@ -1,5 +1,6 @@
 import "./globals.scss"
 import { GeistSans } from "geist/font/sans"
+import ThemeContextProvider from "@/contexts/themeContext"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 
@@ -20,10 +21,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className={GeistSans.className}>
-            <body className="flex flex-col min-h-screen select-none">
-                <Header />
-                <main>{children}</main>
-                <Footer />
+            <body id="top" className="flex flex-col min-h-screen select-none">
+                <ThemeContextProvider>
+                    <Header />
+                    <main>{children}</main>
+                    <Footer />
+                </ThemeContextProvider>
             </body>
         </html>
     )

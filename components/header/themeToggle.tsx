@@ -3,7 +3,7 @@
 import { BiSolidSun, BiSolidMoon } from "react-icons/bi"
 import { useTheme } from "@/contexts/themeContext"
 
-export default function ThemeToggle() {
+export default function () {
     const { darkMode, toggleDarkMode } = useTheme()
 
     function iconShow() {

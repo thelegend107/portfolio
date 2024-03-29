@@ -3,7 +3,7 @@ import { createClient } from "@/utils/supabase/server"
 import { PostgrestSingleResponse } from "@supabase/supabase-js"
 import Project from "./project"
 
-export default async function Projects() {
+export default async function () {
     const supabase = createClient()
     const { data: projects, error }: PostgrestSingleResponse<ProjectDb[]> =
         await supabase
