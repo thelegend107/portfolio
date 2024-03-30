@@ -14,6 +14,10 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'ylqsckbdlzupaourzvtf.supabase.co'
+            },
+            {
+                protocol: 'https',
+                hostname: 'gravatar.com'
             }
         ],
     },

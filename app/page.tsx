@@ -20,6 +20,12 @@ export default async function Index() {
                 </Title>
                 <Projects></Projects>
             </section>
+            <section id="about" className="lg:min-h-[72vh]">
+                <Title>
+                    <p>About Me</p>
+                </Title>
+                <AboutMe />
+            </section>
         </article>
     )
 }
