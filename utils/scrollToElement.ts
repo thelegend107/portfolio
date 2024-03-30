@@ -1,3 +1,5 @@
+import { navigate } from "@/utils/navigate"
+
 export default function (elementId: string) {
     let element: HTMLElement | null = document.getElementById(elementId)
 
@@ -7,5 +9,8 @@ export default function (elementId: string) {
             top: top - 65,
             behavior: "smooth",
         })
+    }
+    else {
+        navigate('/')
     }
 }

@@ -23,7 +23,7 @@
     body {
         @apply bg-light text-dark dark:bg-dark dark:text-light transition-all ease-in-out duration-500;
         @apply bg-contain bg-repeat-y;
-        @apply bg-[linear-gradient(rgba(255,255,255,0.65),rgba(255,255,255,0.65)),url('/abstract-wave.png')] dark:bg-[linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('/abstract-wave.png')];
+        @apply bg-[linear-gradient(rgba(255,255,255,0.65),rgba(255,255,255,0.65)),url('/abstract-wave.webp')] dark:bg-[linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('/abstract-wave.webp')];
     }
 
     h1 {
@@ -56,6 +56,10 @@
 }
 
 @layer components {
+    .btn {
+        @apply flex gap-2 p-1.5 justify-center mt-auto items-center bg-light dark:bg-dark border border-neutral-400 dark:border-neutral-800 hover:bg-primary dark:hover:bg-primary hover:border-primary dark:hover:border-primary hover:text-white hover:dark:text-black rounded-lg;
+    }
+
     .bg-glass {
         @apply bg-[rgba(0,0,0,0.05)] dark:bg-[rgba(255,255,255,0.05)] backdrop-blur-sm;
         @apply border border-neutral-400 dark:border-neutral-800 rounded-lg;

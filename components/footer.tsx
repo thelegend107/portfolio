@@ -64,8 +64,17 @@ export default function () {
                         Supabase
                     </p>
                 </div>
-                <div className="flex flex-col gap-1">
-                    <p className="text-xl">Moe Ayoub</p>
+                <div className="flex flex-col gap-1 justify-center">
+                    <a
+                        target="_blank"
+                        aria-label="copyrights/EULA"
+                        href="https://www.eulatemplate.com/live.php?token=7DlkmycJf9FkjqotsXL4gYNIhu9iw5e7"
+                    >
+                        <small className="text-base">
+                            &copy; {new Date().getFullYear()}, Moe Ayoub. All
+                            Rights Reserved.
+                        </small>
+                    </a>
                     <ul className="flex gap-2 items-center">
                         <li>
                             <a

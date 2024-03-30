@@ -1,18 +1,18 @@
 import "./globals.scss"
 import { GeistSans } from "geist/font/sans"
+import { Metadata } from "next"
 import ThemeContextProvider from "@/contexts/themeContext"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import generateMetadata from "@/utils/generateMetadata"
 
-const defaultUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000"
-
-export const metadata = {
-    metadataBase: new URL(defaultUrl),
-    title: "Moe Ayoub - Portfolio",
-    description: "The fastest way to build apps with Next.js",
-}
+export const metadata: Metadata = generateMetadata({
+    creator: "Moe Ayoub",
+    description:
+        "Moe Ayoub's portfolio. Includes projects designed and developed by Moe Ayoub along with a resume link to view or download",
+    applicationName: "portfolio",
+    images: ["/og-image.webp"],
+})
 
 export default function RootLayout({
     children,

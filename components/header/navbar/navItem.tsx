@@ -14,6 +14,7 @@ export default function ({
     return (
         <li>
             <button
+                aria-label={name}
                 className="hover:text-primary transition-all ease-in-out duration-500"
                 onClick={(e) => {
                     scrollToElement(

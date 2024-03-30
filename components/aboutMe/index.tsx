@@ -36,11 +36,16 @@ export default async function () {
                     <p key={a.id}>{a.description}</p>
                 ))}
                 <div className="flex flex-col sm:flex-row w-full gap-1 mt-auto">
-                    <LinkButton href="/moe.ayoub_resume.pdf" className="w-full">
+                    <LinkButton
+                        href="/moe.ayoub_resume.pdf"
+                        className="w-full"
+                        ariaLabel="view resume button"
+                    >
                         <BiLinkExternal size={20} />
                         View Resume
                     </LinkButton>
                     <LinkButton
+                        ariaLabel="download resume button"
                         href="/moe.ayoub_resume.pdf"
                         className="w-full"
                         download={true}
