@@ -1,33 +1,26 @@
 "use client"
 
+import scrollToElement from "@/utils/scrollToElement"
+
 export default function ({
     name,
     elementId,
+    onClick,
 }: {
     name: string
     elementId?: string
+    onClick?: () => void
 }) {
-    function scrollToElement(elementId: string) {
-        let element: HTMLElement | null = document.getElementById(elementId)
-
-        if (element) {
-            let top = element.offsetTop
-            window.scrollTo({
-                top: top - 65,
-                behavior: "smooth",
-            })
-        }
-    }
-
     return (
         <li>
             <button
                 className="hover:text-primary transition-all ease-in-out duration-500"
-                onClick={() =>
+                onClick={(e) => {
                     scrollToElement(
                         elementId || name.toLowerCase().replaceAll(" ", "")
                     )
-                }
+                    if (onClick != null) onClick()
+                }}
             >
                 {name}
             </button>
