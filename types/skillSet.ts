@@ -1,6 +1,6 @@
 export default interface SkillSetDb {
     id: number,
-    category: string,
+    categoryId: number,
     name: string,
     logoUrl: string
     displayOrder: number

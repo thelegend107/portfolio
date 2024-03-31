@@ -9,7 +9,7 @@ import generateMetadata from "@/utils/generateMetadata"
 export const metadata: Metadata = generateMetadata({
     creator: "Moe Ayoub",
     description:
-        "Moe Ayoub's portfolio. Includes projects designed and developed by Moe Ayoub along with a resume link to view or download",
+        "Moe Ayoub's portfolio. Built by Moe Ayoub using Next.js, React.js, TypeScript and Tailwind. Includes projects designed and developed by Moe Ayoub along with a resume link to view or download.",
     applicationName: "portfolio",
     images: ["/og-image.webp"],
 })

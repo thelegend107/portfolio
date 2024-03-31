@@ -3,11 +3,11 @@ import { GrMysql } from "react-icons/gr"
 import { SiMicrosoftsqlserver } from "react-icons/si"
 
 export default function ({
-    category,
+    categoryId,
     name,
     logoUrl,
 }: {
-    category: string
+    categoryId: number
     name: string
     logoUrl: string
 }) {
@@ -23,7 +23,7 @@ export default function ({
                         src={logoUrl}
                         height={32}
                         width={32}
-                        alt={category + "-" + name}
+                        alt={categoryId + "-" + name}
                     />
                 )}
             </div>

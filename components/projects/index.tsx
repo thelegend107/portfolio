@@ -1,7 +1,9 @@
-import type ProjectDb from "@/types/project"
 import { createClient } from "@/utils/supabase/server"
 import { PostgrestSingleResponse } from "@supabase/supabase-js"
-import Project from "./project"
+import type ProjectDb from "@/types/project"
+
+import SupabaseError from "@/components/supabaseError"
+import Project from "@/components/projects/project"
 
 export default async function () {
     const supabase = createClient()
@@ -12,16 +14,7 @@ export default async function () {
             .select()
             .order("id", { ascending: false })
 
-    if (error)
-        return (
-            <div>
-                <p className="font-semibold text-2xl">
-                    Please make sure you're connected to the internet and then
-                    refresh
-                </p>
-                <p>{error.details}</p>
-            </div>
-        )
+    if (error) return <SupabaseError error={error} />
 
     return (
         <div className="flex flex-col lg:flex-row gap-2 flex-wrap">

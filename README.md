@@ -1,6 +1,6 @@
 # portfolio
 
-![Welcome banner](./public/og-image.webp)
+![Welcome banner (openGraph image)](./public/og-image.webp)
 
 ## Description
 
@@ -8,7 +8,7 @@ This is my personal portfolio. Built with Next.js, React.js, TypeScript & Tailwi
 
 I chose to switch to Next.js from Nuxt.js due to Next's supieror server components.
 
-The most challenging part for me was to familiarize myself with how Next.js operates and its (for the most part) extremely similar.
+The most challenging part for me was to familiarize myself with how Next.js operates and it is (for the most part) extremely similar to Nuxt.
 
 ## Backend
 
