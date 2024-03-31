@@ -43,6 +43,3 @@
 <h3>Governing Law</h3>
 
 <p>This EULA agreement, and any dispute arising out of or in connection with this EULA agreement, shall be governed by and construed in accordance with the laws of <span class="country">the United States of America (US)</span>.</p>
-
-<h3>EULA Link</h3>
-https://www.eulatemplate.com/live.php?token=7DlkmycJf9FkjqotsXL4gYNIhu9iw5e7
