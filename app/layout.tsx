@@ -5,6 +5,8 @@ import ThemeContextProvider from "@/contexts/themeContext"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import generateMetadata from "@/utils/generateMetadata"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = generateMetadata({
     creator: "Moe Ayoub",
@@ -20,14 +22,22 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en" className={GeistSans.className}>
-            <body id="top" className="flex flex-col min-h-screen select-none">
-                <ThemeContextProvider>
-                    <Header />
-                    <main>{children}</main>
-                    <Footer />
-                </ThemeContextProvider>
-            </body>
-        </html>
+        <>
+            <html
+                lang="en"
+                className={GeistSans.className}
+                suppressHydrationWarning
+            >
+                <SpeedInsights />
+                <Analytics debug={false} />
+                <body id="top" className="min-h-screen select-none">
+                    <ThemeContextProvider>
+                        <Header />
+                        <main>{children}</main>
+                        <Footer />
+                    </ThemeContextProvider>
+                </body>
+            </html>
+        </>
     )
 }

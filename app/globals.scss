@@ -21,7 +21,7 @@
     }
 
     body {
-        @apply bg-light text-dark dark:bg-dark dark:text-light transition-all ease-in-out duration-500;
+        @apply bg-light text-dark dark:bg-dark dark:text-light transition-all ease-in-out duration-500 hidden;
         @apply bg-contain bg-repeat-y;
         @apply bg-[linear-gradient(rgba(255,255,255,0.65),rgba(255,255,255,0.65)),url('/abstract-wave.webp')] dark:bg-[linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url('/abstract-wave.webp')];
     }

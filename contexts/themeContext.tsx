@@ -20,29 +20,51 @@ export default function ThemeContextProvider({
 }: {
     children: ReactNode
 }) {
-    const getCurrentTheme = () => {
-        const lsTheme = localStorage.getItem("theme")
-        if (lsTheme) return lsTheme === "dark"
-        else return window.matchMedia("(prefers-color-scheme: dark)").matches
-    }
+    const [darkMode, setDarkMode] = useState(false)
 
-    const [darkMode, setDarkMode] = useState(getCurrentTheme)
-
-    const toggleDarkMode = () => {
-        setDarkMode(!darkMode)
-    }
-
-    useEffect(() => {
-        if (darkMode) {
+    const themeCheckOnLoad = () => {
+        if (
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+            document.documentElement.classList.add("dark")
+            document.documentElement.style.colorScheme = "dark"
             localStorage.setItem("theme", "dark")
+        } else {
+            document.documentElement.classList.remove("dark")
+            document.documentElement.style.colorScheme = "light"
+            localStorage.setItem("theme", "light")
+        }
+    }
+
+    const themeCheck = () => {
+        if (localStorage.theme === "dark") {
             document.documentElement.classList.add("dark")
             document.documentElement.style.colorScheme = "dark"
         } else {
-            localStorage.setItem("theme", "light")
             document.documentElement.classList.remove("dark")
             document.documentElement.style.colorScheme = "light"
         }
+    }
+
+    useEffect(() => {
+        themeCheckOnLoad()
+        if (localStorage.theme === "dark") setDarkMode(true)
+        else setDarkMode(false)
+        document.body.style.display = "block"
+    }, [])
+
+    useEffect(() => {
+        themeCheck()
     }, [darkMode])
+
+    const toggleDarkMode = () => {
+        if ("theme" in localStorage && localStorage.theme === "dark")
+            localStorage.setItem("theme", "light")
+        else localStorage.setItem("theme", "dark")
+        setDarkMode(!darkMode)
+    }
 
     return (
         <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>

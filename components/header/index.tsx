@@ -13,7 +13,7 @@ export default function () {
             <section className="flex items-center justify-center size-full">
                 <Image
                     alt="Moe Ayoub's Logo"
-                    src="/moeayoub_logo.png"
+                    src="/moeAyoub_logo.png"
                     width={48}
                     height={48}
                     priority={true}

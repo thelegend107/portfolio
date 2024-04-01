@@ -12,15 +12,19 @@ The most challenging part for me was to familiarize myself with how Next.js oper
 
 ## Backend
 
-<img src="https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg" alt="supabase" height="30" width="40" />
-<img src="https://www.svgrepo.com/show/354200/postgresql.svg" alt="postgresql" height="30" width="40" />
+<div align="left">
+    <img src="https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg" alt="supabase" height="30" width="40" />
+    <img src="https://www.svgrepo.com/show/354200/postgresql.svg" alt="postgresql" height="30" width="40" />
+</div>
 
 ## Frontend
 
-<img src="https://www.svgrepo.com/show/354113/nextjs-icon.svg" alt="nextjs" height="30" width="40" />
-<img src="https://www.svgrepo.com/show/374035/reactts.svg" alt="react" height="30" width="40" />
-<img src="https://www.svgrepo.com/show/349540/typescript.svg" alt="typescript" height="30" width="40" />
-<img src="https://www.svgrepo.com/show/374118/tailwind.svg" alt="tailwind" height="30" width="40" />
+<div align="left">
+    <img src="https://www.svgrepo.com/show/354113/nextjs-icon.svg" alt="nextjs" height="30" width="40" />
+    <img src="https://www.svgrepo.com/show/374035/reactts.svg" alt="react" height="30" width="40" />
+    <img src="https://www.svgrepo.com/show/349540/typescript.svg" alt="typescript" height="30" width="40" />
+    <img src="https://www.svgrepo.com/show/374118/tailwind.svg" alt="tailwind" height="30" width="40" />
+</div>
 
 ## License
 
