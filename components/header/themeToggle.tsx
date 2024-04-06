@@ -21,6 +21,7 @@ export default function () {
     if (mounted)
         return (
             <button
+                aria-label="theme-toggle-button"
                 className={
                     (darkMode
                         ? "bg-primary text-primary "
