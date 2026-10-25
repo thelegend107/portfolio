@@ -14,8 +14,9 @@ export default function ({
     return (
         <li>
             <button
+                type="button"
                 aria-label={name}
-                className="hover:text-primary transition-all ease-in-out duration-500 w-full text-left hover:border-b hover:border-primary"
+                className="nav-link w-full text-left font-display text-xs font-medium uppercase tracking-[0.06em] lg:tracking-[0.08em]"
                 onClick={(e) => {
                     scrollToElement(
                         elementId || name.toLowerCase().replaceAll(" ", "")

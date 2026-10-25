@@ -8,12 +8,18 @@ import {
     useState,
 } from "react"
 
-interface ThemeContext {
+interface ThemeContextValue {
     darkMode: boolean
     toggleDarkMode: () => void
 }
 
-const ThemeContext = createContext<ThemeContext | null>(null)
+const ThemeContext = createContext<ThemeContextValue | null>(null)
+
+function applyTheme(dark: boolean) {
+    document.documentElement.classList.toggle("dark", dark)
+    document.documentElement.style.colorScheme = dark ? "dark" : "light"
+    localStorage.setItem("theme", dark ? "dark" : "light")
+}
 
 export default function ThemeContextProvider({
     children,
@@ -21,49 +27,25 @@ export default function ThemeContextProvider({
     children: ReactNode
 }) {
     const [darkMode, setDarkMode] = useState(false)
-
-    const themeCheckOnLoad = () => {
-        if (
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches)
-        ) {
-            document.documentElement.classList.add("dark")
-            document.documentElement.style.colorScheme = "dark"
-            localStorage.setItem("theme", "dark")
-        } else {
-            document.documentElement.classList.remove("dark")
-            document.documentElement.style.colorScheme = "light"
-            localStorage.setItem("theme", "light")
-        }
-    }
-
-    const themeCheck = () => {
-        if (localStorage.theme === "dark") {
-            document.documentElement.classList.add("dark")
-            document.documentElement.style.colorScheme = "dark"
-        } else {
-            document.documentElement.classList.remove("dark")
-            document.documentElement.style.colorScheme = "light"
-        }
-    }
+    const [synced, setSynced] = useState(false)
 
     useEffect(() => {
-        themeCheckOnLoad()
-        if (localStorage.theme === "dark") setDarkMode(true)
-        else setDarkMode(false)
-        document.body.style.display = "block"
+        const dark = localStorage.theme === "dark"
+        setDarkMode(dark)
+        setSynced(true)
     }, [])
 
     useEffect(() => {
-        themeCheck()
-    }, [darkMode])
+        if (!synced) return
+        applyTheme(darkMode)
+    }, [darkMode, synced])
 
     const toggleDarkMode = () => {
-        if ("theme" in localStorage && localStorage.theme === "dark")
-            localStorage.setItem("theme", "light")
-        else localStorage.setItem("theme", "dark")
-        setDarkMode(!darkMode)
+        setDarkMode((value) => {
+            const next = !value
+            applyTheme(next)
+            return next
+        })
     }
 
     return (

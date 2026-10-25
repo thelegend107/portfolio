@@ -20,8 +20,8 @@ export default function ({
             aria-label={ariaLabel || "link-button"}
             className={"btn " + className}
             href={href}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={download ? undefined : "_blank"}
+            rel={download ? undefined : "noopener noreferrer"}
             download={download}
         >
             {children}

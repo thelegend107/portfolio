@@ -1,52 +1,45 @@
 import { createClient } from "@/utils/supabase/server"
-import { PostgrestSingleResponse } from "@supabase/supabase-js"
 import type SkillSetDb from "@/types/skillSet"
-import type SkillSetCategory from "@/types/skillSetCategory"
+import { fallbackSkills, publicSkillGroups } from "@/data/fallbacks"
 
 import Skill from "@/components/skillSets/skill"
 import SkillCategory from "@/components/skillSets/skillCategory"
-import SupabaseError from "@/components/supabaseError"
 
 export default async function () {
-    const supabase = createClient()
+    let skillSetData: SkillSetDb[] = fallbackSkills
 
-    const {
-        data: skillSetCategories,
-        error: skillSetCategoriesError,
-    }: PostgrestSingleResponse<SkillSetCategory[]> = await supabase
-        .schema("portfolio")
-        .from("skillSetCategories")
-        .select()
-        .order("displayOrder")
+    try {
+        const supabase = await createClient()
+        const skills = await supabase
+            .schema("portfolio")
+            .from("skillSets")
+            .select()
+        if (!skills.error && skills.data?.length) skillSetData = skills.data
+    } catch {
+        skillSetData = fallbackSkills
+    }
 
-    if (skillSetCategoriesError)
-        return <SupabaseError error={skillSetCategoriesError} />
-
-    const {
-        data: skillSetData,
-        error: skillSetError,
-    }: PostgrestSingleResponse<SkillSetDb[]> = await supabase
-        .schema("portfolio")
-        .from("skillSets")
-        .select()
-        .order("displayOrder", { ascending: true })
-
-    if (skillSetError) return <SupabaseError error={skillSetError} />
+    const byName = new Map(skillSetData.map((skill) => [skill.name, skill]))
+    const curated = new Map(fallbackSkills.map((skill) => [skill.name, skill]))
+    for (const skill of fallbackSkills) {
+        if (!byName.has(skill.name)) byName.set(skill.name, skill)
+    }
 
     return (
-        <div className="flex flex-col lg:flex-row gap-2 flex-wrap">
-            {skillSetCategories.map((c) => (
-                <SkillCategory key={c.id} name={c.name}>
-                    {skillSetData
-                        .filter((s) => s.categoryId == c.id)
-                        .map((s) => (
+        <div className="flex flex-col">
+            {publicSkillGroups.map((group) => (
+                <SkillCategory key={group.name} name={group.name}>
+                    {group.names.map((name) => {
+                        const skill = curated.get(name) ?? byName.get(name)
+                        if (!skill) return null
+                        return (
                             <Skill
-                                key={s.id}
-                                categoryId={s.categoryId}
-                                name={s.name}
-                                logoUrl={s.logoUrl}
-                            ></Skill>
-                        ))}
+                                key={name}
+                                name={skill.name}
+                                logoUrl={skill.logoUrl}
+                            />
+                        )
+                    })}
                 </SkillCategory>
             ))}
         </div>
