@@ -1,16 +1,19 @@
 import { navigate } from "@/utils/navigate"
 
 export default function (elementId: string) {
-    let element: HTMLElement | null = document.getElementById(elementId)
+    const element = document.getElementById(elementId)
 
-    if (element) {
-        let top = element.offsetTop
-        window.scrollTo({
-            top: top - 65,
-            behavior: "smooth",
-        })
+    if (!element) {
+        navigate("/")
+        return
     }
-    else {
-        navigate('/')
-    }
+
+    const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches
+    const top = element.getBoundingClientRect().top + window.scrollY - 72
+    window.scrollTo({
+        top,
+        behavior: reduce ? "auto" : "smooth",
+    })
 }

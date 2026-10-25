@@ -1,44 +1,39 @@
 "use client"
 
-import { BiSolidSun, BiSolidMoon } from "react-icons/bi"
+import { useSyncExternalStore } from "react"
 import { useTheme } from "@/contexts/themeContext"
-import { useEffect, useState } from "react"
+import { IconMoon, IconSun } from "@/components/icons/InkIcon"
+
+function subscribe(onStoreChange: () => void) {
+    const observer = new MutationObserver(onStoreChange)
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+    })
+    return () => observer.disconnect()
+}
 
 export default function () {
-    const { darkMode, toggleDarkMode } = useTheme()
-    const [mounted, setMounted] = useState(false)
+    const { toggleDarkMode } = useTheme()
+    const darkMode = useSyncExternalStore(
+        subscribe,
+        () => document.documentElement.classList.contains("dark"),
+        () => false
+    )
 
-    function iconShow() {
-        if (darkMode) {
-            return <BiSolidMoon className="size-full"></BiSolidMoon>
-        } else {
-            return <BiSolidSun className="size-full"></BiSolidSun>
-        }
-    }
-
-    useEffect(() => setMounted(true))
-
-    if (mounted)
-        return (
-            <button
-                aria-label="theme-toggle-button"
-                className={
-                    (darkMode
-                        ? "bg-primary text-primary "
-                        : "bg-neutral-700 text-dark ") +
-                    "p-[1px] rounded-full h-[26px] w-12 transition-all ease-in-out border border-dark dark:border-white shadow-inner shadow-neutral-900"
-                }
-                onClick={toggleDarkMode}
-            >
-                <div
-                    className={
-                        (darkMode ? "translate-x-full " : null) +
-                        "flex items-center justify-center w-1/2 rounded-full p-0.5 bg-white size-full transition-all ease-in-out duration-500 shadow-md shadow-black"
-                    }
-                >
-                    {iconShow()}
-                </div>
-            </button>
-        )
-    else return null
+    return (
+        <button
+            type="button"
+            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+            className="ink-theme-toggle"
+            onClick={toggleDarkMode}
+        >
+            <span className="ink-theme-pill">
+                <span className="ink-theme-thumb">
+                    <IconSun size={13} className="dark:hidden" />
+                    <IconMoon size={13} className="hidden dark:block" />
+                </span>
+            </span>
+        </button>
+    )
 }

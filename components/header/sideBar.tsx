@@ -1,40 +1,104 @@
 "use client"
 
-import { IoMenuOutline } from "react-icons/io5"
-import { CgClose } from "react-icons/cg"
-import { useState } from "react"
+import { useEffect, useId, useRef, useState } from "react"
 import Navbar from "./navbar"
+import { IconClose, IconMenu } from "@/components/icons/InkIcon"
+
+const FOCUSABLE =
+    'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])'
 
 export default function () {
-    const [showSideBar, setShowSideBar] = useState(false)
+    const [open, setOpen] = useState(false)
+    const openRef = useRef<HTMLButtonElement>(null)
+    const closeRef = useRef<HTMLButtonElement>(null)
+    const asideRef = useRef<HTMLElement>(null)
+    const titleId = useId()
+
+    useEffect(() => {
+        const aside = asideRef.current
+        if (aside) aside.inert = !open
+        if (!open) return
+
+        const previousOverflow = document.body.style.overflow
+        document.body.style.overflow = "hidden"
+        closeRef.current?.focus()
+
+        const onKey = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setOpen(false)
+                return
+            }
+            if (event.key !== "Tab" || !asideRef.current) return
+            const items = Array.from(
+                asideRef.current.querySelectorAll<HTMLElement>(FOCUSABLE)
+            )
+            if (!items.length) return
+            const first = items[0]
+            const last = items[items.length - 1]
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault()
+                last.focus()
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault()
+                first.focus()
+            }
+        }
+
+        window.addEventListener("keydown", onKey)
+        return () => {
+            document.body.style.overflow = previousOverflow
+            window.removeEventListener("keydown", onKey)
+            openRef.current?.focus()
+        }
+    }, [open])
 
     return (
-        <div className="transition-all ease-in-out duration-500">
-            <IoMenuOutline
-                className="md:hidden cursor-pointer"
-                size={40}
-                onClick={() => setShowSideBar(true)}
-            />
+        <div className="md:hidden">
+            <button
+                ref={openRef}
+                type="button"
+                className="ink-icon-btn min-h-11 min-w-11"
+                aria-label="Open menu"
+                aria-expanded={open}
+                aria-controls="site-menu"
+                onClick={() => setOpen(true)}
+            >
+                <IconMenu size={22} />
+            </button>
             <aside
+                ref={asideRef}
+                id="site-menu"
+                role="dialog"
+                aria-modal={open}
+                aria-hidden={!open}
+                aria-labelledby={titleId}
                 className={
-                    "absolute left-0 top-0 z-20 bg-light dark:bg-dark h-screen w-screen transition-all ease-in-out duration-500" +
-                    " " +
-                    (!showSideBar ? "-translate-x-full" : "")
+                    "ink-panel fixed inset-0 z-30 h-svh w-screen transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] " +
+                    (open
+                        ? "translate-x-0"
+                        : "pointer-events-none -translate-x-full")
                 }
             >
-                <div className="flex justify-between items-center text-xl bg-light dark:bg-dark border-b border-dark dark:border-light p-3.5">
-                    <p>
-                        Moe Ayoub - <span>portfolio</span>
+                <div className="flex items-center justify-between border-b border-[color:var(--color-hairline)] p-3.5">
+                    <p
+                        id={titleId}
+                        className="font-display text-xl tracking-[-0.02em]"
+                    >
+                        Moe Ayoub
                     </p>
-                    <CgClose
-                        className="cursor-pointer"
-                        size={35}
-                        onClick={() => setShowSideBar(false)}
-                    />
+                    <button
+                        ref={closeRef}
+                        type="button"
+                        className="ink-icon-btn min-h-11 min-w-11"
+                        aria-label="Close menu"
+                        onClick={() => setOpen(false)}
+                    >
+                        <IconClose size={20} />
+                    </button>
                 </div>
                 <Navbar
                     className="p-3.5"
-                    onClick={() => setShowSideBar(false)}
+                    onClick={() => setOpen(false)}
                 />
             </aside>
         </div>

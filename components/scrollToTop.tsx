@@ -1,13 +1,21 @@
 "use client"
 
-import { HiArrowUpCircle } from "react-icons/hi2"
+import { IconArrowUp } from "@/components/icons/InkIcon"
 
 export default function () {
     return (
-        <HiArrowUpCircle
-            onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
-            className="rounded-full bg-light dark:bg-dark cursor-pointer"
-            size={45}
-        />
+        <button
+            type="button"
+            aria-label="Scroll to top"
+            onClick={() => {
+                const reduce = window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                ).matches
+                scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" })
+            }}
+            className="ink-scroll-top"
+        >
+            <IconArrowUp size={18} />
+        </button>
     )
 }

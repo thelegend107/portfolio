@@ -1,57 +1,60 @@
 import { createClient } from "@/utils/supabase/server"
-import { BiDownload, BiLinkExternal } from "react-icons/bi"
-import { PostgrestSingleResponse } from "@supabase/supabase-js"
+import { IconDownload, IconExternal } from "@/components/icons/InkIcon"
 import gravatarProfilePic from "@/utils/gravatarProfilePic"
 import Image from "next/image"
 import LinkButton from "../linkButton"
 import type AboutMeDb from "@/types/aboutMe"
+import { fallbackAboutMe } from "@/data/fallbacks"
 
 export default async function () {
-    const supabase = createClient()
-    const { data: aboutMeData, error }: PostgrestSingleResponse<AboutMeDb[]> =
-        await supabase.schema("portfolio").from("aboutMe").select()
-
-    if (error)
-        return (
-            <div>
-                <p className="font-semibold text-2xl">
-                    Please make sure you're connected to the internet and then
-                    refresh
-                </p>
-                <p>{error.details}</p>
-            </div>
-        )
+    let aboutMeData: AboutMeDb[] = fallbackAboutMe
+    try {
+        const supabase = await createClient()
+        const { data, error } = await supabase
+            .schema("portfolio")
+            .from("aboutMe")
+            .select()
+            .order("displayOrder", { ascending: true })
+        if (!error && data?.length) aboutMeData = data
+    } catch {
+        aboutMeData = fallbackAboutMe
+    }
 
     return (
-        <div className="flex flex-col md:flex-row bg-glass font-light md:divide-x-4 md:divide-neutral-400 md:dark:divide-neutral-800">
+        <div className="about-panel ink-surface">
             <Image
-                className="border-4 border-neutral-400 dark:border-neutral-800 rounded-full mx-auto m-4 md:m-0 md:border-0 md:rounded-none md:rounded-l-lg md:mx-0 md:p-0"
+                className="about-portrait"
                 src={gravatarProfilePic("mma.ayoub@outlook.com", 500)}
-                width={250}
-                height={250}
-                alt="gravatar-pic"
+                width={220}
+                height={220}
+                alt="Portrait of Moe Ayoub"
             />
-            <div className="flex flex-col p-2 items-center justify-center gap-4 md:text-lg">
+            <div className="about-copy">
                 {aboutMeData.map((a) => (
-                    <p key={a.id}>{a.description}</p>
+                    <p
+                        key={a.id}
+                        className="max-w-[62ch] leading-relaxed text-[color:var(--color-body)]"
+                    >
+                        {a.description}
+                    </p>
                 ))}
-                <div className="flex flex-col sm:flex-row w-full gap-1 mt-auto">
+                <div className="mt-auto flex w-full flex-col gap-3 sm:flex-row">
                     <LinkButton
                         href="/moe.ayoub_resume.pdf"
-                        className="w-full"
-                        ariaLabel="view resume button"
+                        className="w-full sm:w-auto"
+                        ariaLabel="View resume PDF"
                     >
-                        <BiLinkExternal size={20} />
-                        View Resume
+                        <IconExternal size={16} />
+                        View resume
                     </LinkButton>
                     <LinkButton
-                        ariaLabel="download resume button"
+                        ariaLabel="Download resume PDF"
                         href="/moe.ayoub_resume.pdf"
-                        className="w-full"
+                        className="w-full sm:w-auto"
                         download={true}
                     >
-                        <BiDownload size={20} />
-                        Download Resume
+                        <IconDownload size={16} />
+                        Download resume
                     </LinkButton>
                 </div>
             </div>

@@ -1,10 +1,9 @@
 import ScrollToTop from "@/components/scrollToTop"
-import { BiLogoPostgresql } from "react-icons/bi"
 import {
     SiGithub,
     SiLinkedin,
-    SiMicrosoftoutlook,
     SiNextdotjs,
+    SiPostgresql,
     SiReact,
     SiSalesforce,
     SiSupabase,
@@ -12,103 +11,129 @@ import {
     SiTypescript,
     SiVercel,
 } from "react-icons/si"
+import { IconMail } from "@/components/icons/InkIcon"
+
 export default function () {
     return (
-        <footer className="flex flex-col bg-light dark:bg-dark text-lg mt-10 border-t border-dark dark:border-light">
-            <section className="absolute flex w-full justify-center -mt-4 p- animate-bounce">
+        <footer className="relative mt-8 flex flex-col border-t border-[color:var(--color-hairline)] bg-transparent text-sm text-[color:var(--color-muted)] md:mt-10">
+            <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
                 <ScrollToTop />
-            </section>
-            <section className="flex flex-col md:flex-row gap-4 justify-between mt-5 md:mt-0 p-4">
-                <div className="flex flex-col gap-4 md:gap-0.5">
-                    <div className="flex gap-1.5 items-center font-light flex-wrap">
-                        <p>Made with: </p>
+            </div>
+            <section className="mx-auto mt-1 flex w-full max-w-7xl flex-col justify-between gap-3 px-3 pb-4 pt-5 md:flex-row md:items-end md:px-6 md:pb-4 md:pt-5">
+                <div className="flex max-w-xl flex-col gap-2">
+                    <div className="flex flex-wrap items-center gap-2.5">
+                        <p className="text-sm text-[color:var(--color-muted)]">
+                            Built with
+                        </p>
                         <a
                             target="_blank"
-                            aria-label="Vercel's webpage link"
+                            rel="noopener noreferrer"
+                            aria-label="Vercel"
                             href="https://vercel.com"
+                            className="ink-brand-link"
                         >
-                            <SiVercel size={20} />
+                            <SiVercel size={16} aria-hidden />
                         </a>
                         <a
                             target="_blank"
-                            aria-label="Next's webpage link"
+                            rel="noopener noreferrer"
+                            aria-label="Next.js"
                             href="https://nextjs.org"
+                            className="ink-brand-link"
                         >
-                            <SiNextdotjs size={20} />
+                            <SiNextdotjs size={16} aria-hidden />
                         </a>
                         <a
                             target="_blank"
-                            aria-label="React's webpage link"
+                            rel="noopener noreferrer"
+                            aria-label="React"
                             href="https://react.dev"
+                            className="ink-brand-link"
                         >
-                            <SiReact size={20} />
+                            <SiReact size={16} aria-hidden />
                         </a>
                         <a
                             target="_blank"
-                            aria-label="Tailwind's webpage link"
+                            rel="noopener noreferrer"
+                            aria-label="Tailwind CSS"
                             href="https://tailwindcss.com"
+                            className="ink-brand-link"
                         >
-                            <SiTailwindcss size={20} />
+                            <SiTailwindcss size={16} aria-hidden />
                         </a>
                         <a
                             target="_blank"
-                            aria-label="TypeScript's webpage link"
+                            rel="noopener noreferrer"
+                            aria-label="TypeScript"
                             href="https://typescriptlang.org"
+                            className="ink-brand-link"
                         >
-                            <SiTypescript size={20} />
+                            <SiTypescript size={16} aria-hidden />
                         </a>
                     </div>
-                    <p className="flex gap-1 items-center flex-wrap">
-                        This project uses a <BiLogoPostgresql size={20} />
-                        Postgres database hosted on <SiSupabase size={20} />
-                        Supabase
+                    <p className="flex flex-wrap items-center gap-2 leading-relaxed">
+                        <span className="ink-inline-mark">
+                            <SiPostgresql size={16} aria-hidden />
+                            Postgres
+                        </span>
+                        on
+                        <span className="ink-inline-mark">
+                            <SiSupabase size={16} aria-hidden />
+                            Supabase
+                        </span>
                     </p>
                 </div>
-                <div className="flex flex-col gap-1 justify-center">
+                <div className="flex flex-col gap-2 md:items-end">
                     <a
                         target="_blank"
-                        aria-label="copyrights/EULA"
+                        rel="noopener noreferrer"
+                        aria-label="Copyright Moe Ayoub"
                         href="https://www.eulatemplate.com/live.php?token=7DlkmycJf9FkjqotsXL4gYNIhu9iw5e7"
+                        className="text-sm text-[color:var(--color-faint)]"
                     >
-                        <small className="text-base">
-                            &copy; {new Date().getFullYear()}, Moe Ayoub. All
-                            Rights Reserved.
-                        </small>
+                        © {new Date().getFullYear()} Moe Ayoub
                     </a>
-                    <ul className="flex gap-2 items-center">
+                    <ul className="flex items-center gap-1">
                         <li>
                             <a
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 aria-label="Moe Ayoub's LinkedIn Profile"
                                 href="https://www.linkedin.com/in/mhayoub/"
+                                className="ink-brand-link"
                             >
-                                <SiLinkedin size={20} />
+                                <SiLinkedin size={16} aria-hidden />
                             </a>
                         </li>
                         <li>
                             <a
                                 aria-label="Moe Ayoub's personal email"
                                 href="mailto:mma.ayoub@outlook.com"
+                                className="ink-brand-link"
                             >
-                                <SiMicrosoftoutlook size={20} />
+                                <IconMail size={16} />
                             </a>
                         </li>
                         <li>
                             <a
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 aria-label="Moe Ayoub's GitHub Project link"
                                 href="https://github.com/thelegend107/portfolio"
+                                className="ink-brand-link"
                             >
-                                <SiGithub size={20} />
+                                <SiGithub size={16} aria-hidden />
                             </a>
                         </li>
                         <li>
                             <a
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 aria-label="Moe Ayoub's Salesforce Trailblazer profile"
                                 href="https://www.salesforce.com/trailblazer/thelegend107"
+                                className="ink-brand-link"
                             >
-                                <SiSalesforce size={20} />
+                                <SiSalesforce size={16} aria-hidden />
                             </a>
                         </li>
                     </ul>

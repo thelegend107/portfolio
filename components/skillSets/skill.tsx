@@ -1,33 +1,58 @@
+"use client"
+
 import Image from "next/image"
-import { GrMysql } from "react-icons/gr"
-import { SiMicrosoftsqlserver } from "react-icons/si"
+import { useState } from "react"
+import BoomiMark from "@/components/icons/BoomiMark"
+import SwiftUIMark from "@/components/icons/SwiftUIMark"
+
+const letterMarks: Record<string, string> = {
+    "ASP.NET": "AS",
+    Java: "JA",
+    MATLAB: "ML",
+    Verilog: "VL",
+    MPLAB: "MP",
+    Batch: "BA",
+}
 
 export default function ({
-    categoryId,
     name,
     logoUrl,
 }: {
-    categoryId: number
     name: string
     logoUrl: string
 }) {
+    const [broken, setBroken] = useState(false)
+    const letters = letterMarks[name]
+    const showImage = !letters && name !== "Boomi" && Boolean(logoUrl) && !broken
+
     return (
-        <div className="flex flex-col justify-center items-center pt-2 px-4 rounded-lg bg-[rgba(0,0,0,0.06)] dark:bg-[rgba(255,255,255,0.06)] gap-1">
-            <div className="flex items-center size-8">
-                {name.toLowerCase().replaceAll(" ", "") == "sqlserver" ? (
-                    <SiMicrosoftsqlserver size={32} />
-                ) : name.toLowerCase().replaceAll(" ", "") == "mysql" ? (
-                    <GrMysql size={32} />
-                ) : (
+        <li className="skill-chip">
+            <span className="skill-mark-box">
+                {name === "Boomi" ? (
+                    <BoomiMark className="skill-glyph" />
+                ) : name === "SwiftUI" ? (
+                    <SwiftUIMark className="skill-glyph" />
+                ) : showImage ? (
                     <Image
                         src={logoUrl}
-                        height={32}
-                        width={32}
-                        alt={categoryId + "-" + name}
+                        height={28}
+                        width={28}
+                        alt=""
+                        aria-hidden
+                        className="skill-mark"
+                        onError={() => setBroken(true)}
                     />
+                ) : (
+                    <span aria-hidden className="skill-fallback">
+                        {letters ??
+                            name.replace(/[^A-Za-z0-9+#]/g, "").slice(0, 2).toUpperCase()}
+                    </span>
                 )}
-            </div>
-            <p className="font-light">{name}</p>
-        </div>
+            </span>
+            <p>
+                <span className="sr-only">Skill: </span>
+                {name}
+            </p>
+        </li>
     )
 }

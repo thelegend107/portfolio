@@ -1,25 +1,26 @@
 import { createClient } from "@/utils/supabase/server"
-import { PostgrestSingleResponse } from "@supabase/supabase-js"
 import type ProjectDb from "@/types/project"
-
-import SupabaseError from "@/components/supabaseError"
+import { fallbackProjects } from "@/data/fallbacks"
 import Project from "@/components/projects/project"
 
 export default async function () {
-    const supabase = createClient()
-    const { data: projects, error }: PostgrestSingleResponse<ProjectDb[]> =
-        await supabase
+    let projects: ProjectDb[] = fallbackProjects
+    try {
+        const supabase = await createClient()
+        const { data, error } = await supabase
             .schema("portfolio")
             .from("projects")
             .select()
             .order("id", { ascending: false })
-
-    if (error) return <SupabaseError error={error} />
+        if (!error && data?.length) projects = data
+    } catch {
+        projects = fallbackProjects
+    }
 
     return (
-        <div className="flex flex-col lg:flex-row gap-2 flex-wrap">
+        <div className="flex flex-col gap-4 md:gap-5">
             {projects.map((p) => (
-                <Project key={p.id} project={p}></Project>
+                <Project key={p.id} project={p} />
             ))}
         </div>
     )

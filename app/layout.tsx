@@ -1,5 +1,5 @@
 import "./globals.scss"
-import { GeistSans } from "geist/font/sans"
+import { DM_Sans, Outfit } from "next/font/google"
 import { Metadata } from "next"
 import ThemeContextProvider from "@/contexts/themeContext"
 import Header from "@/components/header"
@@ -8,10 +8,24 @@ import generateMetadata from "@/utils/generateMetadata"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
+const display = Outfit({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-display",
+    display: "swap",
+})
+
+const sans = DM_Sans({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-sans",
+    display: "swap",
+})
+
 export const metadata: Metadata = generateMetadata({
     creator: "Moe Ayoub",
     description:
-        "Moe Ayoub's portfolio. Built by Moe Ayoub using Next.js, React.js, TypeScript and Tailwind. Includes projects designed and developed by Moe Ayoub along with a resume link to view or download.",
+        "Portfolio of Moe Ayoub, Full-Stack Engineer. AgTerra work leads; Raven systems experience stays visible. Selected projects, resume, and contact.",
     applicationName: "portfolio",
     images: ["/og-image.webp"],
 })
@@ -22,22 +36,30 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <>
-            <html
-                lang="en"
-                className={GeistSans.className}
-                suppressHydrationWarning
-            >
+        <html
+            lang="en"
+            className={`${display.variable} ${sans.variable} font-sans`}
+            suppressHydrationWarning
+        >
+            <head>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `(function(){try{var t=localStorage.theme;var d=t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',d);document.documentElement.style.colorScheme=d?'dark':'light';if(!t)localStorage.theme=d?'dark':'light'}catch(e){}})()`,
+                    }}
+                />
+            </head>
+            <body id="top" className="min-h-screen">
+                <a className="skip-link" href="#content">
+                    Skip to content
+                </a>
                 <SpeedInsights />
                 <Analytics debug={false} />
-                <body id="top" className="min-h-screen select-none">
-                    <ThemeContextProvider>
-                        <Header />
-                        <main>{children}</main>
-                        <Footer />
-                    </ThemeContextProvider>
-                </body>
-            </html>
-        </>
+                <ThemeContextProvider>
+                    <Header />
+                    <main id="content">{children}</main>
+                    <Footer />
+                </ThemeContextProvider>
+            </body>
+        </html>
     )
 }
