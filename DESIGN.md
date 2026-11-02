@@ -1,6 +1,6 @@
 ---
 name: Moe Ayoub Portfolio
-description: Suminagashi ink basin portfolio — work as currents, identity in the still margin
+description: Still Motion Cue portfolio — professional letterhead on a living atmospheric field
 colors:
   onyx: "#0C0C0E"
   royal: "#3E63D6"
@@ -57,42 +57,40 @@ components:
   button-primary-hover:
     backgroundColor: "{colors.ink}"
     textColor: "#FFFFFF"
-  dye-stain:
-    backgroundColor: "feathered paper scrim over ink"
-    textColor: "{colors.basin-depth}"
-    rounded: "0.65rem"
-    padding: "0.45rem 0.85rem"
+  hero-cue:
+    backgroundColor: "{colors.neon}"
 ---
 
 # Design System: Moe Ayoub Portfolio
 
 ## Overview
 
-**Creative North Star: "Ink Basin"**
+**Creative North Star: "Still Motion Cue"**
 
-The site is a suminagashi field: project work moves as indigo–navy currents in a living basin; name, title, and contact sit in a still paper margin. Recruiters should feel intentional craft in the first viewport—not a stacked resume card wall.
+The first viewport is a calm professional letterhead on a living atmospheric film: the name is the artwork, neon titles it, a short neon cue breathes once, and soft ambient video washes behind. No photographic basin plate, no hard royal geometry band. Recruiters should feel intentional craft—not a stacked resume card wall.
 
-Density stays gallery-air: generous section gaps, one job per band, no hero card grid. Motion is reserved for filament shear inside the basin (pointer + scroll); labels stay mostly still. Reduced-motion freezes the marble.
+Density stays gallery-air: generous section gaps, one job per band, no hero card grid. Motion is ambient film drift, the neon cue, scroll parallax, and section reveal. Reduced-motion freezes all of it.
 
 **Key Characteristics:**
-- Split first viewport: still margin + living basin plate
+- First viewport: oversized name, neon title, neon cue hairline, support, Email + Resume
+- Ambient background film (`/hero-atmosphere.mp4`) under a soft ground wash
 - First viewport names AgTerra (now) and Raven (prior) in plain words
-- Royal blue as the Email CTA; neon purple as the title and the corner bloom
+- Royal blue as the Email CTA; neon purple as the title and the cue only
 - Outfit display + DM Sans body (no serif, no Inter/Space Grotesk defaults)
-- Light paper / dark ink themes share the same basin grammar (`ink-basin-plate.webp` / `ink-basin-plate-dark.webp`)
+- Light paper / dark onyx grounds share the same three-hue grammar
 
 ## Colors
 
-Three hues. Onyx is the field. Royal blue does the work. Neon purple is the interruption: the title and the corner bloom, not the buttons.
+Three hues. Onyx is the field. Royal blue does the work. Neon purple is the interruption: the title and the cue, not the buttons.
 
 ### Onyx
-- **Onyx** (`#0C0C0E`): Primary text, dark ground, and the dark plate.
+- **Onyx** (`#0C0C0E`): Primary text and dark ground.
 
 ### Royal
-- **Royal blue** (`#3E63D6`): Email CTA, focus, nav rule, AgTerra name on light. Dark theme lifts the name to `#5B7CFA` so it stays readable on onyx.
+- **Royal blue** (`#3E63D6`): Email CTA, focus, nav rule, AgTerra name on light. Dark theme lifts AgTerra to `#5B7CFA` so it stays readable on onyx.
 
 ### Neon
-- **Neon purple** (`#A100E8` light, `#E46BFF` dark): “Full-Stack Engineer”, link hover, and the ground bloom. It is the color that should feel out of place.
+- **Neon purple** (`#A100E8` light, `#E46BFF` dark): “Full-Stack Engineer”, link hover, the hero cue, and the ground bloom. It is the color that should feel out of place.
 
 ### Neutral
 - **Paper** (`#F4F5F7`): Light ground, lifted from onyx rather than a fourth hue.
@@ -103,11 +101,10 @@ Three hues. Onyx is the field. Royal blue does the work. Neon purple is the inte
 
 ### Roles (CSS vars)
 - `--color-muted` / `--color-faint`: cool-tinted secondary text
-- `--color-hairline` / `--color-shell-glow`: separators and basin inset
-- Dark plate: `ink-basin-plate-dark.webp` (indigo–navy, not inverted gold)
+- `--color-hairline` / `--color-shell-glow`: separators and glass inset
 
 ### Named Rules
-**The Dye Budget Rule.** Royal blue owns the action. Neon purple owns the title and one bloom. Neither becomes a page-wide wash.
+**The Dye Budget Rule.** Royal blue owns the action. Neon purple owns the title and the cue. Neither becomes a page-wide wash.
 
 ## Typography
 
@@ -117,7 +114,7 @@ Three hues. Onyx is the field. Royal blue does the work. Neon purple is the inte
 **Character:** Soft geometric sans for names and section titles; quiet humanist sans for reading. No Times-adjacent serifs; no Inter / Space Grotesk defaults.
 
 ### Hierarchy
-- **Display** (600, clamp ~2.6–4rem, 1.06): Hero name.
+- **Display** (600, clamp ~3–5.75rem on the hero, 1.06): Hero name as the artwork.
 - **Title** (600, clamp ~1.75–2.4rem, 1.18): Section and company headings.
 - **Lead** (500, clamp ~1.2–1.5rem): Role line and CTA label weight.
 - **Body** (400, 1.0625rem, ~1.68, max ~60ch): Experience bullets and about copy.
@@ -126,20 +123,18 @@ Three hues. Onyx is the field. Royal blue does the work. Neon purple is the inte
 
 ## Layout
 
-Max width `max-w-7xl`, horizontal padding `px-3` / `md:px-6`, vertical section rhythm `gap-20` / `md:gap-24`. Hero is a two-column grid on large screens (`~34%` margin / remainder basin); stacked on small screens with basin `min-h-[420px]`.
+Max width `max-w-7xl`, horizontal padding `px-3` / `md:px-6`, vertical section rhythm `gap-16` / `md:gap-24`. Hero breaks out of that padding as a single full-viewport stage: letterhead copy over ambient film.
 
 ## Elevation & Depth
 
-Mostly tonal: paper vs basin fill, inset highlight on the basin shell, soft ambient shadow under the shell. Project names sit as dye stains in the current (feathered scrim + text-shadow, no paper chip). CTA lifts slightly on hover with indigo-tinted shadow; no multi-layer card stacks in the hero.
+Mostly tonal: paper/onyx ground against soft atmospheric film. CTA lifts slightly on hover with royal-tinted shadow; no multi-layer card stacks in the hero.
 
 ### Shadow Vocabulary
-- **Basin shell** (`0 18px 40px -28px rgba(10, 26, 51, 0.28)` + inset highlight): Contains the ink field.
-- **Dye stain**: Feathered paper/ink scrim + soft text halo for readability; no drop shadow card.
 - **CTA hover** (`0 12px 28px -14px rgba(62, 99, 214, 0.65)`): Feedback only.
 
 ## Shapes
 
-Small radii on controls (`rounded-md`); basin uses `1.25rem` rounding. Prefer soft rectangles over pills.
+Small radii on controls (`rounded-md`). Prefer soft rectangles over pills. The hero cue is a short rounded hairline, never a badge.
 
 ## Components
 
@@ -149,8 +144,8 @@ UI chrome uses one authored stroke set (`components/icons/InkIcon.tsx`): 16×16 
 ### Primary CTA (`InkCta`)
 Solid royal blue `#3E63D6`, Outfit medium, drawn SVG arrow (no unicode). Pointer tracks a soft radial highlight.
 
-### Dye stain
-Project name set in the ink as a dye region: feathered scrim, soft text halo, no paper chip or drop shadow. Links into Projects. Pointer and scroll shear filament layers inside the plate; labels stay mostly still. Reduced-motion freezes to the still plate.
+### Hero atmosphere
+Full-bleed ambient film fills a sticky Apple-style track (`object-fit: cover` across the whole stage). On wide viewports the letterhead is a left rail (~half the stage) with a measure ladder: monumental name, then a lede+CTA group at readable measure, while the film blooms on the right. Letterhead enters with staggered transform/opacity only (no blur or scale) and stays sharp through the pin. Role line and cue use neon; royal stays on Email / AgTerra emphasis (`at&nbsp;` keeps the employer on the same wrap unit). Film holds the poster until `loadeddata`, then crossfades in; scroll parallax is film-only (~140vh track, full-viewport sticky stage under the frosted header, ~78ms lerp) with a one-shot “Scroll” hint. Film is desaturated; phone and desktop share petal `object-position: 68% 42%` with a lighter mobile bottom wash. Identity has no phone `14ch` cap. Header frost uses unprefixed `backdrop-filter`. Sections rise in ~560ms. Reduced-motion collapses the track, hides film/hint, and freezes motion. No photographic plate and no project dyes in the hero.
 
 ### Header
 Sticky solid paper/ink; centered logo; uppercase Outfit nav.
@@ -161,12 +156,11 @@ Hairline top border, two-column meta/body on desktop; AgTerra first, then Raven 
 ## Do's and Don'ts
 
 **Do**
-- Lead the first viewport with the living basin beside still identity type
+- Lead the first viewport with the name as the artwork and keep color on role, cue, and Email
 - Keep AgTerra first and Raven material in Experience
-- Freeze basin motion under `prefers-reduced-motion`
+- Freeze hero atmosphere and cue under `prefers-reduced-motion`
 
 **Don't**
-- Put equal project cards or a logo wall in the hero
+- Put equal project cards, a logo wall, a photo plate, or a hard royal band in the hero
 - Use serif display, Inter, or Space Grotesk as defaults
 - Invent metrics, employers, or product claims beyond PRODUCT.md / LinkedIn / repo data
-- Open a PR until the owner approves

@@ -18,7 +18,7 @@ export default function ({
     return (
         <a
             aria-label={ariaLabel || "link-button"}
-            className={"btn " + className}
+            className={["btn", className].filter(Boolean).join(" ")}
             href={href}
             target={download ? undefined : "_blank"}
             rel={download ? undefined : "noopener noreferrer"}

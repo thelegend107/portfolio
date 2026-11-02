@@ -23,7 +23,9 @@ export default function ({
 }) {
     const [broken, setBroken] = useState(false)
     const letters = letterMarks[name]
-    const showImage = !letters && name !== "Boomi" && Boolean(logoUrl) && !broken
+    const customGlyph = name === "Boomi" || name === "SwiftUI"
+    const showImage =
+        !letters && !customGlyph && Boolean(logoUrl) && !broken
 
     return (
         <li className="skill-chip">

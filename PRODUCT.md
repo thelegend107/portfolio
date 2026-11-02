@@ -60,12 +60,14 @@ Init answers (2026-10-25): (1) Full-Stack Engineer (2) current work leads (3) pu
 
 **AgTerra Technologies — Software Developer (May 2024 – Present), Sheridan, WY**
 
-- Developed a self-service admin web application for client management of users and permissions, utilizing React.js, TailwindCSS, and .NET 8 API.
-- Built user interfaces with ASP.NET, incorporating SASS for styling and jQuery for interactive features.
-- MapItFast iOS UI development and enhancements.
-- Streamlined support ticket workflows through automation with Trello integration.
-- Designed and implemented a database logging library using .NET Standard 2.0 and SQL Server.
-- Revamped and modernized a custom enterprise website, including database restructuring and UI upgrades, using SQL Server, SASS, and Blazor.
+Public Experience bullets (LinkedIn base + owner-requested refresh from current AgTerra product work, 2026-11; WhereAbout brand kept off the portfolio):
+
+- MapItFast iOS (.NET): interface work, crash and background stability, and form/sync reliability for field releases.
+- Offline-first field mapping app in SwiftUI: project sync, vector layersets, data-logger capture, and multi-object map editing against AgTerra services.
+- Self-service admin so clients manage users and permissions, using React, Tailwind CSS, and a .NET 8 API.
+- ASP.NET interfaces with SASS and jQuery; support-ticket workflows automated through a Trello integration.
+- Database logging library on .NET Standard 2.0 and SQL Server.
+- Enterprise site modernization: database restructuring and UI, with SQL Server, SASS, and Blazor.
 
 **Raven Industries — Software Developer (Oct 2020 – Sep 2023), Sioux Falls, SD**
 

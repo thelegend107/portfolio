@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { SITE_URL, absoluteUrl } from "@/utils/siteUrl"
 
 interface PortfolioMeta {
     title?: string
@@ -9,37 +10,72 @@ interface PortfolioMeta {
 }
 
 export default function (meta: PortfolioMeta): Metadata {
-    if (!meta.title) meta.title = `${meta.creator} - ${meta.applicationName}`
+    if (!meta.title) meta.title = `${meta.creator} — Full-Stack Engineer`
 
-    const base =
-        process.env.NEXT_PUBLIC_BASE_URL || "https://moeayoub.com"
+    const imageList = meta.images.map((src) => ({
+        url: absoluteUrl(src),
+        width: 1200,
+        height: 630,
+        alt: `${meta.creator} portfolio`,
+    }))
 
     const metadata: Metadata = {
-        metadataBase: new URL(base),
-        title: meta.title,
+        metadataBase: new URL(SITE_URL),
+        title: {
+            default: meta.title,
+            template: `%s · ${meta.creator}`,
+        },
         description: meta.description,
         applicationName: meta.applicationName,
         authors: [
             { name: meta.creator, url: "https://github.com/thelegend107" },
         ],
-        keywords:
-            "moe, ayoub, theLegend107, moeayoub, portfolio, reactjs, nextjs, typescript, full-stack engineer, AgTerra",
+        keywords: [
+            "Moe Ayoub",
+            "Full-Stack Engineer",
+            "AgTerra",
+            "Raven Industries",
+            "React",
+            ".NET",
+            "MapItFast",
+            "TypeScript",
+            "Next.js",
+            "portfolio",
+            "Sheridan Wyoming",
+            "theLegend107",
+        ],
         creator: meta.creator,
-        generator: "Next.js",
-        publisher: "Vercel",
-        robots: { follow: true, index: true },
-
+        publisher: meta.creator,
+        category: "technology",
+        alternates: {
+            canonical: "/",
+        },
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                "max-image-preview": "large",
+                "max-snippet": -1,
+                "max-video-preview": -1,
+            },
+        },
         twitter: {
             card: "summary_large_image",
             creator: "@theLegend107",
-            images: meta.images,
+            title: meta.title,
+            description: meta.description,
+            images: imageList.map((image) => image.url),
         },
-
         openGraph: {
-            url: new URL(base),
-            siteName: meta.applicationName,
+            title: meta.title,
+            description: meta.description,
+            url: SITE_URL,
+            siteName: `${meta.creator} Portfolio`,
+            locale: "en_US",
             type: "website",
-            images: meta.images,
+            images: imageList,
         },
     }
 

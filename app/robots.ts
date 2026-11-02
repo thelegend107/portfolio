@@ -1,14 +1,14 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from "next"
+import { SITE_URL } from "@/utils/siteUrl"
 
-export default function (): MetadataRoute.Robots {
+export default function robots(): MetadataRoute.Robots {
     return {
         rules: [
             {
                 userAgent: "*",
                 allow: "/",
-                disallow: []
             },
         ],
-        sitemap: `${process.env.NEXT_PUBLIC_BASE_URL}/sitemap.xml`
+        sitemap: `${SITE_URL}/sitemap.xml`,
     }
 }

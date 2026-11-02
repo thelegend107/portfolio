@@ -43,7 +43,7 @@ export const fallbackAboutMe: AboutMeDb[] = [
     {
         id: 1,
         description:
-            "Full-Stack Engineer in Sheridan, Wyoming. Currently building field and admin software at AgTerra Technologies: React and .NET admin surfaces, plus MapItFast iOS.",
+            "Full-Stack Engineer in Sheridan, Wyoming. Currently building field and admin software at AgTerra Technologies: MapItFast on iOS, an offline field mapping app in SwiftUI, and React/.NET admin surfaces.",
         displayOrder: 1,
     },
     {
@@ -125,7 +125,7 @@ export const fallbackSkills: SkillSetDb[] = [
     { id: 20, name: "CSS", categoryId: 1, logoUrl: si("css3"), displayOrder: 6 },
     { id: 9, name: "React", categoryId: 2, logoUrl: si("react"), displayOrder: 1 },
     { id: 12, name: ".NET", categoryId: 2, logoUrl: si("dotnet"), displayOrder: 2 },
-    { id: 11, name: "SwiftUI", categoryId: 2, logoUrl: "", displayOrder: 3 },
+    { id: 11, name: "SwiftUI", categoryId: 2, logoUrl: si("swift"), displayOrder: 3 },
     { id: 13, name: "ASP.NET", categoryId: 2, logoUrl: "", displayOrder: 4 },
     { id: 59, name: "jQuery", categoryId: 2, logoUrl: si("jquery"), displayOrder: 5 },
     { id: 14, name: "Blazor", categoryId: 2, logoUrl: si("blazor"), displayOrder: 6 },

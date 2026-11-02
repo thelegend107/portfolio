@@ -5,6 +5,7 @@ import ThemeContextProvider from "@/contexts/themeContext"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import generateMetadata from "@/utils/generateMetadata"
+import JsonLd from "@/components/JsonLd"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -25,8 +26,8 @@ const sans = DM_Sans({
 export const metadata: Metadata = generateMetadata({
     creator: "Moe Ayoub",
     description:
-        "Portfolio of Moe Ayoub, Full-Stack Engineer. AgTerra work leads; Raven systems experience stays visible. Selected projects, resume, and contact.",
-    applicationName: "portfolio",
+        "Moe Ayoub is a Full-Stack Engineer at AgTerra Technologies in Sheridan, Wyoming. MapItFast on iOS, offline field mapping in SwiftUI, and React/.NET admin work, with prior ERP, Salesforce, and Azure experience at Raven Industries. Portfolio, resume, and contact.",
+    applicationName: "Moe Ayoub Portfolio",
     images: ["/og-image.webp"],
 })
 
@@ -42,6 +43,7 @@ export default function RootLayout({
             suppressHydrationWarning
         >
             <head>
+                <JsonLd />
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `(function(){try{var t=localStorage.theme;var d=t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',d);document.documentElement.style.colorScheme=d?'dark':'light';if(!t)localStorage.theme=d?'dark':'light'}catch(e){}})()`,

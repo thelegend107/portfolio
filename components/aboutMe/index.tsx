@@ -33,12 +33,12 @@ export default async function () {
                 {aboutMeData.map((a) => (
                     <p
                         key={a.id}
-                        className="max-w-[62ch] leading-relaxed text-[color:var(--color-body)]"
+                        className="leading-relaxed text-[color:var(--color-body)]"
                     >
                         {a.description}
                     </p>
                 ))}
-                <div className="mt-auto flex w-full flex-col gap-3 sm:flex-row">
+                <div className="mt-1 flex w-full flex-col gap-3 sm:flex-row">
                     <LinkButton
                         href="/moe.ayoub_resume.pdf"
                         className="w-full sm:w-auto"

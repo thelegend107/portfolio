@@ -5,7 +5,7 @@ import SideBar from "./sideBar"
 
 export default function () {
     return (
-        <header className="ink-ground sticky top-0 z-20 border-b border-[color:var(--color-hairline)]">
+        <header className="ink-ground border-b border-[color:var(--color-hairline)]">
             <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between px-3 py-2 md:px-6">
                 <section className="flex min-w-0 items-center">
                     <Navbar className="hidden md:block" />

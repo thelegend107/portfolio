@@ -41,7 +41,6 @@ export default function ({ project: p }: { project: ProjectDb }) {
                     {p.link ? (
                         <LinkButton
                             href={p.link}
-                            className="w-full sm:w-auto"
                             ariaLabel={`Open ${p.name} website`}
                         >
                             <IconExternal size={16} />
@@ -50,7 +49,6 @@ export default function ({ project: p }: { project: ProjectDb }) {
                     ) : null}
                     <LinkButton
                         href={p.repoLink}
-                        className="w-full sm:w-auto"
                         ariaLabel={`Open ${p.name} source repository`}
                     >
                         {p.repoLink.includes("github") ? (

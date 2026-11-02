@@ -1,10 +1,14 @@
 import { MetadataRoute } from "next"
+import { SITE_URL } from "@/utils/siteUrl"
 
-export default function (): MetadataRoute.Sitemap {
+export default function sitemap(): MetadataRoute.Sitemap {
+    const now = new Date()
     return [
         {
-            url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
-            lastModified: new Date()
-        }
+            url: SITE_URL,
+            lastModified: now,
+            changeFrequency: "monthly",
+            priority: 1,
+        },
     ]
 }
