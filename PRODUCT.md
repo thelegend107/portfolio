@@ -33,11 +33,11 @@ Experience section expectation: AgTerra first (full LinkedIn bullets), then Rave
 ## Capabilities and Constraints
 
 - Must keep dark/light mode.
-- Brand colors stay recognizable: primary `#5356FF`, secondary `#0B60B0`.
+- Brand colors: onyx `#0C0C0E`, royal blue `#3E63D6`, neon purple `#A100E8` (light) / `#E46BFF` (dark).
 - Do not invent employers, dates, metrics, or claims beyond LinkedIn (owner-confirmed), the repo, Supabase data, the resume PDF, and facts recorded here.
 - Do not deploy, change Vercel settings, rotate keys, or commit secrets.
 - Site must remain usable when Supabase is unavailable (static fallback content).
-- Resume PDF remains linked (`public/moe.ayoub_resume.pdf`); refreshed for AgTerra through Present, address/phone redacted. Source DOCX in `docs/`.
+- Resume PDF remains the original file at `public/moe.ayoub_resume.pdf`.
 - Open decisions: optional dedicated headshot beyond Gravatar. MapItFast iOS may appear in public copy (LinkedIn + resume already name it). WhereAbout product names stay off the public portfolio unless the owner adds them.
 
 ## Brand Commitments
@@ -45,7 +45,7 @@ Experience section expectation: AgTerra first (full LinkedIn bullets), then Rave
 - Name: Moe Ayoub
 - Public title: Full-Stack Engineer
 - Logo: `/public/moeAyoub_logo.png`
-- Accent pair: `#5356FF` (primary), `#0B60B0` (secondary)
+- Palette: onyx `#0C0C0E`, royal blue `#3E63D6` for action, neon purple for the title and the ground bloom
 - Existing socials and project URLs in the repo/footer remain authoritative
 - Voice: confident, concrete, technical without hype filler (“seamless”, “unleash”, etc.)
 - Location OK to show: Sheridan, Wyoming
@@ -79,7 +79,7 @@ Init answers (2026-10-25): (1) Full-Stack Engineer (2) current work leads (3) pu
 
 - Supabase tables in schema `portfolio` (aboutMe, projects, skillSets, skillSetCategories)
 - Personal projects: moviesApp, fakeStore, resumeWebsite (descriptions, links, repos, screenshots)
-- Resume PDF: `/public/moe.ayoub_resume.pdf` (AgTerra through Present; address/phone redacted)
+- Resume PDF: `/public/moe.ayoub_resume.pdf` (original file)
 - Gravatar for profile image via email hash
 
 ### Local AgTerra product evidence (workspace; do not invent metrics)

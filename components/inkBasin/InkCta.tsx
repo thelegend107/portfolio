@@ -31,7 +31,7 @@ export default function InkCta({
             ref={ref}
             href={href}
             onPointerMove={onMove}
-            className="ink-cta inline-flex w-fit items-center gap-2 rounded-md bg-primary px-6 py-3.5 font-display text-sm font-semibold tracking-[-0.01em] text-white hover:bg-[#4548e8] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="ink-cta inline-flex w-fit items-center gap-2 rounded-md bg-primary px-6 py-3.5 font-display text-sm font-semibold tracking-[-0.01em] text-white hover:bg-[#2e4cb0] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
             {children}
             <IconArrowRight size={14} className="ink-icon shrink-0" />

@@ -43,15 +43,15 @@ Primary CTA: Contact / Email. Secondary: View resume. One label per intent site-
 
 | Role | Token | Hex |
 |------|-------|-----|
-| Accent primary | `--color-primary` | `#5356FF` |
-| Accent secondary | `--color-secondary` | `#0B60B0` |
+| Royal | `--color-primary` | `#3E63D6` |
+| Neon | `--color-accent` | `#A100E8` / `#E46BFF` |
 | Light ground | `--color-light` | `#F4F4F2` (soft off-white; not pure `#fff`) |
 | Dark ground | `--color-dark` | `#0A0A0B` (off-black; not pure `#000`) |
 | Muted text light | | zinc-600 family |
 | Muted text dark | | zinc-400 family |
 | Border | | zinc-300 / zinc-700 |
 
-Single accent lock: `#5356FF` for CTAs and emphasis; `#0B60B0` for secondary links/chips only.
+Royal `#3E63D6` for the CTA. Neon purple for the title and the bloom.
 
 ## Typography
 

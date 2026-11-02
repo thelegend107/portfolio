@@ -2,13 +2,15 @@
 name: Moe Ayoub Portfolio
 description: Suminagashi ink basin portfolio — work as currents, identity in the still margin
 colors:
-  primary: "#5356FF"
-  secondary: "#0B60B0"
-  ink: "#0A0A0B"
-  paper: "#F4F4F2"
-  basin-depth: "#0A1A33"
-  basin-current: "#1E2D4A"
-  basin-dilute: "#606D80"
+  onyx: "#0C0C0E"
+  royal: "#3E63D6"
+  neon: "#A100E8"
+  neon-dark: "#E46BFF"
+  ink: "#0C0C0E"
+  paper: "#F4F5F7"
+  basin-depth: "#10182C"
+  basin-current: "#1A2748"
+  basin-dilute: "#5C6A82"
 typography:
   display:
     fontFamily: "Outfit, ui-sans-serif, system-ui, sans-serif"
@@ -47,7 +49,7 @@ spacing:
   page-x: "0.75rem"
 components:
   button-primary:
-    backgroundColor: "{colors.basin-depth}"
+    backgroundColor: "#3E63D6"
     textColor: "#FFFFFF"
     typography: "{typography.lead}"
     rounded: "{rounded.sm}"
@@ -75,27 +77,29 @@ Density stays gallery-air: generous section gaps, one job per band, no hero card
 **Key Characteristics:**
 - Split first viewport: still margin + living basin plate
 - First viewport names AgTerra (now) and Raven (prior) in plain words
-- Brand indigo as the Email CTA and dye accents
+- Royal blue as the Email CTA; neon purple as the title and the corner bloom
 - Outfit display + DM Sans body (no serif, no Inter/Space Grotesk defaults)
 - Light paper / dark ink themes share the same basin grammar (`ink-basin-plate.webp` / `ink-basin-plate-dark.webp`)
 
 ## Colors
 
-Paper ground with deep basin inks; brand accents appear as dilute dye, not purple gradients. Neutrals are cool-mixed with basin hues (not generic gray).
+Three hues. Onyx is the field. Royal blue does the work. Neon purple is the interruption: the title and the corner bloom, not the buttons.
 
-### Primary
-- **Brand Indigo** (`#5356FF`): Title, Email CTA, focus rings, dye hover, experience bullets.
+### Onyx
+- **Onyx** (`#0C0C0E`): Primary text, dark ground, and the dark plate.
 
-### Secondary
-- **Depth Blue** (`#0B60B0`): AgTerra name accent in the hero, dye-stain scrim tint, shell inset glow, meta separators.
+### Royal
+- **Royal blue** (`#3E63D6`): Email CTA, focus, nav rule, AgTerra name on light. Dark theme lifts the name to `#5B7CFA` so it stays readable on onyx.
+
+### Neon
+- **Neon purple** (`#A100E8` light, `#E46BFF` dark): “Full-Stack Engineer”, link hover, and the ground bloom. It is the color that should feel out of place.
 
 ### Neutral
-- **Ink** (`#0A0A0B`): Primary text and dark surfaces.
-- **Paper** (`#F4F4F2`): Page ground and light plate stock.
-- **Basin Depth** (`#0A1A33`): Dominant ink bloom; dye stain type on light.
-- **Basin Current** (`#1E2D4A`): Mid filament layer; muted-text mix.
-- **Basin Dilute** (`#606D80`): Softened ink edges; faint meta type mix.
-- **On-action** (`#FFFFFF`): Text/icons on solid primary CTA fill.
+- **Paper** (`#F4F5F7`): Light ground, lifted from onyx rather than a fourth hue.
+- **Basin Depth** (`#10182C`): Onyx mixed with royal; glass and dye structure.
+- **Basin Current** (`#1A2748`): Mid filament.
+- **Basin Dilute** (`#5C6A82`): Softened edges.
+- **On-action** (`#FFFFFF`): Text on the royal CTA.
 
 ### Roles (CSS vars)
 - `--color-muted` / `--color-faint`: cool-tinted secondary text
@@ -103,7 +107,7 @@ Paper ground with deep basin inks; brand accents appear as dilute dye, not purpl
 - Dark plate: `ink-basin-plate-dark.webp` (indigo–navy, not inverted gold)
 
 ### Named Rules
-**The Dye Budget Rule.** Brand indigo and secondary blue appear as accents inside the basin or as the title/CTA fill—not as page-wide washes or decorative glass.
+**The Dye Budget Rule.** Royal blue owns the action. Neon purple owns the title and one bloom. Neither becomes a page-wide wash.
 
 ## Typography
 
@@ -131,7 +135,7 @@ Mostly tonal: paper vs basin fill, inset highlight on the basin shell, soft ambi
 ### Shadow Vocabulary
 - **Basin shell** (`0 18px 40px -28px rgba(10, 26, 51, 0.28)` + inset highlight): Contains the ink field.
 - **Dye stain**: Feathered paper/ink scrim + soft text halo for readability; no drop shadow card.
-- **CTA hover** (`0 12px 28px -14px rgba(83, 86, 255, 0.65)`): Feedback only.
+- **CTA hover** (`0 12px 28px -14px rgba(62, 99, 214, 0.65)`): Feedback only.
 
 ## Shapes
 
@@ -143,7 +147,7 @@ Small radii on controls (`rounded-md`); basin uses `1.25rem` rounding. Prefer so
 UI chrome uses one authored stroke set (`components/icons/InkIcon.tsx`): 16×16 viewBox, 1.6 stroke, round caps/joins, `currentColor`. Actions: arrow, menu, close, sun/moon, external, download, mail. Brand/tech marks in the footer stay Simple Icons at a matched optical size. No mixed icon packs for chrome; no emoji/unicode glyphs.
 
 ### Primary CTA (`InkCta`)
-Solid brand indigo `#5356FF`, Outfit medium, drawn SVG arrow (no unicode). Pointer tracks a soft radial highlight.
+Solid royal blue `#3E63D6`, Outfit medium, drawn SVG arrow (no unicode). Pointer tracks a soft radial highlight.
 
 ### Dye stain
 Project name set in the ink as a dye region: feathered scrim, soft text halo, no paper chip or drop shadow. Links into Projects. Pointer and scroll shear filament layers inside the plate; labels stay mostly still. Reduced-motion freezes to the still plate.

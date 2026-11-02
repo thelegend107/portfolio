@@ -14,41 +14,45 @@
         --leading-body: 1.68;
         --measure: 60ch;
         --ink-ease: cubic-bezier(0.22, 1, 0.36, 1);
-        --color-primary: #5356ff;
-        --color-secondary: #0b60b0;
-        --color-ink: #0a0a0b;
-        --color-paper: #f4f4f2;
-        --color-basin-depth: #0a1a33;
-        --color-basin-current: #1e2d4a;
-        --color-basin-dilute: #606d80;
-        --color-accent: #5356ff;
-        --color-depth: #0b60b0;
-        --color-body: #1a2433;
-        --color-muted: color-mix(in oklab, var(--color-ink) 72%, var(--color-basin-current));
-        --color-faint: #2a3648;
-        --color-hairline: color-mix(in oklab, var(--color-basin-depth) 24%, transparent);
-        --color-shell-glow: color-mix(in oklab, var(--color-secondary) 34%, transparent);
-        --color-ground: color-mix(in oklab, var(--color-paper) 91%, var(--color-basin-depth));
-        --color-ground-pool: color-mix(in oklab, var(--color-secondary) 20%, transparent);
-        --color-ground-bloom: color-mix(in oklab, var(--color-primary) 16%, transparent);
-        --color-ground-wash: color-mix(in oklab, var(--color-secondary) 8%, transparent);
+        --color-onyx: #0c0c0e;
+        --color-royal: #3e63d6;
+        --color-neon: #a100e8;
+        --color-primary: var(--color-royal);
+        --color-secondary: #1b3a9a;
+        --color-ink: var(--color-onyx);
+        --color-paper: #f4f5f7;
+        --color-basin-depth: #10182c;
+        --color-basin-current: #1a2748;
+        --color-basin-dilute: #5c6a82;
+        --color-accent: var(--color-neon);
+        --color-depth: var(--color-royal);
+        --color-body: #14161c;
+        --color-muted: color-mix(in oklab, var(--color-ink) 78%, var(--color-royal));
+        --color-faint: #3a3f4a;
+        --color-hairline: color-mix(in oklab, var(--color-onyx) 16%, transparent);
+        --color-shell-glow: color-mix(in oklab, var(--color-royal) 28%, transparent);
+        --color-ground: color-mix(in oklab, var(--color-paper) 88%, var(--color-onyx));
+        --color-ground-pool: color-mix(in oklab, var(--color-royal) 18%, transparent);
+        --color-ground-bloom: color-mix(in oklab, var(--color-neon) 34%, transparent);
+        --color-ground-wash: color-mix(in oklab, var(--color-royal) 7%, transparent);
         --ink-glass-fill: color-mix(in oklab, var(--color-paper) 82%, transparent);
         --ink-panel-fill: color-mix(in oklab, var(--color-paper) 92%, var(--color-ground));
         --ink-surface-fill: color-mix(in oklab, var(--color-paper) 84%, transparent);
     }
 
     .dark {
-        --color-accent: #8b8eff;
-        --color-depth: #6aa4de;
-        --color-body: #e4e7ec;
-        --color-muted: color-mix(in oklab, var(--color-paper) 78%, var(--color-basin-dilute));
-        --color-faint: #c9d2dc;
-        --color-hairline: color-mix(in oklab, var(--color-paper) 20%, transparent);
-        --color-shell-glow: color-mix(in oklab, var(--color-secondary) 36%, transparent);
-        --color-ground: color-mix(in oklab, var(--color-ink) 78%, var(--color-basin-depth));
-        --color-ground-pool: color-mix(in oklab, var(--color-secondary) 28%, transparent);
-        --color-ground-bloom: color-mix(in oklab, var(--color-primary) 16%, transparent);
-        --color-ground-wash: color-mix(in oklab, var(--color-basin-current) 36%, transparent);
+        --color-neon: #e46bff;
+        --color-accent: var(--color-neon);
+        --color-depth: #5b7cfa;
+        --color-body: #e6e8ee;
+        --color-muted: color-mix(in oklab, var(--color-paper) 82%, var(--color-royal));
+        --color-faint: #c5cad6;
+        --color-hairline: color-mix(in oklab, var(--color-paper) 18%, transparent);
+        --color-shell-glow: color-mix(in oklab, var(--color-royal) 34%, transparent);
+        --color-ground: var(--color-onyx);
+        --color-ground-pool: color-mix(in oklab, var(--color-royal) 32%, transparent);
+        --color-ground-bloom: color-mix(in oklab, var(--color-neon) 42%, transparent);
+        --color-ground-wash: color-mix(in oklab, var(--color-royal) 16%, transparent);
         --ink-glass-fill: color-mix(in oklab, var(--color-basin-depth) 84%, transparent);
         --ink-panel-fill: color-mix(in oklab, var(--color-basin-depth) 94%, var(--color-ink));
         --ink-surface-fill: color-mix(in oklab, var(--color-basin-depth) 72%, transparent);
@@ -60,9 +64,9 @@
         background-color: var(--color-ground);
         background-image:
             radial-gradient(
-                38rem 28rem at 12% 8%,
+                22rem 16rem at 16% 22%,
                 var(--color-ground-bloom),
-                transparent 72%
+                transparent 68%
             ),
             radial-gradient(
                 46rem 30rem at 0% 100%,
@@ -85,9 +89,9 @@
     .dark html {
         background-image:
             radial-gradient(
-                36rem 26rem at 10% 6%,
+                24rem 18rem at 14% 16%,
                 var(--color-ground-bloom),
-                transparent 72%
+                transparent 66%
             ),
             radial-gradient(
                 44rem 28rem at 0% 100%,
@@ -507,7 +511,7 @@
 
     .ink-cta:hover,
     .ink-cta:focus-visible {
-        box-shadow: 0 14px 32px -12px rgba(83, 86, 255, 0.72);
+        box-shadow: 0 14px 32px -12px rgba(62, 99, 214, 0.72);
     }
 
     .ink-cta:hover::before,
@@ -517,7 +521,7 @@
 
     .ink-cta:active {
         transform: translateY(0) scale(0.97);
-        box-shadow: 0 6px 16px -12px rgba(83, 86, 255, 0.55);
+        box-shadow: 0 6px 16px -12px rgba(62, 99, 214, 0.55);
     }
 
     .ink-cta-secondary {
@@ -754,7 +758,7 @@
         border: 1px solid var(--color-hairline);
         background: var(--color-paper);
         color: var(--color-ink);
-        box-shadow: 0 10px 24px -16px rgba(10, 26, 51, 0.45);
+        box-shadow: 0 10px 24px -16px rgba(12, 12, 14, 0.45);
         transition:
             transform 200ms var(--ink-ease),
             color 180ms var(--ink-ease),
@@ -948,7 +952,7 @@
         border-radius: 999px;
         background: var(--color-paper);
         color: var(--color-ink);
-        box-shadow: 0 4px 10px -4px rgba(10, 26, 51, 0.45);
+        box-shadow: 0 4px 10px -4px rgba(12, 12, 14, 0.45);
         transform: translateX(0);
         transition: transform 220ms var(--ink-ease);
     }
